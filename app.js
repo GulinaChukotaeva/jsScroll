@@ -41,6 +41,8 @@ window.addEventListener("scroll", function () {
     navbar.classList.add("fixed-nav");
   } else {
     navbar.classList.remove("fixed-nav");
+
+
   }
   // setup back to top link
 
@@ -162,38 +164,18 @@ const about = document.querySelector('.about');
 const btns = document.querySelectorAll(".tab-btn");
 const articles = document.querySelectorAll('.content')
 
-// about.addEventListener("click", function(e) {
-//   const id = e.target.dataset.id;
-
-//   if(id) {
-//     btns.forEach(function (btn) {
-//       btn.classList.remove("active")
-//     });
-
-//     e.target.classList.add("active");
-
-//     articles.forEach(function (article) {
-//        article.classList.remove("active")
-//     })
-
-//     const tabContent = document.getElementById(id);
-//     tabContent.classList.add('active')
-//   }
-// })
-
-
 about.addEventListener("click", function(e) {
   const id = e.target.dataset.id;
 
   if(id) {
     btns.forEach(function (btn) {
-      btn.classList.remove('active')
+      btn.classList.remove("active")
     });
 
-    e.target.classList.add('active');
+    e.target.classList.add("active");
 
     articles.forEach(function (article) {
-      article.classList.remove('active')
+       article.classList.remove("active")
     })
 
     const tabContent = document.getElementById(id);
@@ -202,3 +184,91 @@ about.addEventListener("click", function(e) {
 })
 
 
+ 
+
+// const questions = document.querySelectorAll(".question");
+
+// questions.forEach(function (question) {
+//   const btn = question.querySelector(".question-btn");
+//   console.log(btn);
+
+//   btn.addEventListener("click", function () {
+//      console.log(question);
+
+//      question.classList.toggle("show-text");
+
+//     // questions.forEach(function (item) {
+//     //   if (item !== question) {
+//     //     item.classList.remove("show-text");
+//     //     // console.log(item)
+//     //   }
+//     // });
+ 
+//   });
+// });
+
+
+const questions = document.querySelectorAll('.question')
+
+questions.forEach(function(question) {
+  const btn = question.querySelector('.question-btn')
+
+  btn.addEventListener('click', function() {
+      question.classList.toggle('show-text')
+ 
+
+      ///remove when another toggles open
+  questions.forEach(function(item) {
+    if(item !== question) {
+      item.classList.remove('show-text')
+    }
+  })
+  })
+})
+
+
+
+
+const slides = document.querySelectorAll(".slide");
+const nextBtn = document.querySelector(".nextBtn");
+const prevBtn = document.querySelector(".prevBtn");
+slides.forEach(function (slide, index) {
+  slide.style.left = `${index * 100}%`;
+});
+let counter = 0;
+nextBtn.addEventListener("click", function () {
+  counter++;
+  carousel();
+});
+
+prevBtn.addEventListener("click", function () {
+  counter--;
+  carousel();
+});
+
+function carousel() {
+  // working with slides
+  // if (counter === slides.length) {
+  //   counter = 0;
+  // }
+  // if (counter < 0) {
+  //   counter = slides.length - 1;
+  // }
+  // working with buttons
+
+  if (counter < slides.length - 1) {
+    nextBtn.style.display = "block";
+  } else {
+    nextBtn.style.display = "none";
+  }
+  if (counter > 0) {
+    prevBtn.style.display = "block";
+  } else {
+    prevBtn.style.display = "none";
+  }
+  slides.forEach(function (slide) {
+    slide.style.transform = `translateX(-${counter * 100}%)`;
+  });
+}
+
+prevBtn.style.display = "none";

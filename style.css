@@ -171,6 +171,7 @@ p {
 /* section */
 .section {
   padding-bottom: 5rem;
+ 
 }
 
 .section-center {
@@ -335,7 +336,7 @@ header {
 #about,
 #services,
 #tours {
-  height: 80vh;
+  height: 90vh;
 }
 #services {
   background: var(--clr-white);
@@ -391,11 +392,6 @@ footer p {
 /* About
 =============== */
  
-.title {
-  text-align: center;
-  margin-bottom: 30px;
-  margin-top: 30px;
-}
 .title p {
   width: 80%;
   margin: 0 auto;
@@ -467,4 +463,167 @@ footer p {
 }
 .content.active {
   display: block;
+}
+
+
+/*
+=============== 
+Questions
+===============
+*/
+ 
+ 
+ 
+.question {
+  background: var(--clr-white);
+  border-radius: var(--radius);
+  box-shadow: var(--light-shadow);
+  padding: 1.5rem 1.5rem 0 1.5rem;
+  margin-bottom: 2rem;
+}
+.question-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  padding-bottom: 1rem;
+}
+
+.question-title p {
+  margin-bottom: 0;
+  letter-spacing: var(--spacing);
+  color: var(--clr-grey-1);
+}
+.question-btn {
+  font-size: 1.5rem;
+  background: transparent;
+  border-color: transparent;
+  cursor: pointer;
+  color: var(--clr-gold);
+  transition: var(--transition);
+}
+.question-btn:hover {
+  transform: rotate(90deg);
+}
+.question-text {
+  padding: 1rem 0 1.5rem 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+.question-text p {
+  margin-bottom: 0;
+}
+/* hide text */
+.question-text {
+  display: none;
+}
+.show-text .question-text {
+  display: block;
+}
+.minus-icon {
+  display: none;
+}
+.show-text .minus-icon {
+  display: inline;
+}
+.show-text .plus-icon {
+  display: none;
+}
+ 
+
+
+
+
+.slider-container {
+  border: 5px solid var(--clr-primary-5);
+  width: 80vw;
+  margin: 0 auto;
+  height: 40vh;
+  max-width: 80rem;
+  position: relative;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-top: 4rem;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: var(--clr-primary-9);
+  color: var(--clr-white);
+  display: grid;
+  place-items: center;
+  transition: all 0.25s ease-in-out;
+  text-align: center;
+}
+.slide-img {
+  height: 100%;
+  object-fit: contain;
+}
+.slide h1 {
+  font-size: 5rem;
+}
+ 
+.slide:nth-child(1) h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.slide:nth-child(3) {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("./img-2.jpeg") center/cover no-repeat;
+} 
+#tours .btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.75rem;
+}
+.prevBtn,
+.nextBtn {
+  background: transparent;
+  border-color: transparent;
+  font-size: 1.75rem;
+  cursor: pointer;
+  margin: 0 0.25rem;
+  text-transform: capitalize;
+  letter-spacing: 2px;
+  color: var(--clr-grey-5);
+  transition: var(--transition);
+}
+.prevBtn:hover,
+.nextBtn:hover {
+  color: var(--clr-grey-3);
+}
+
+@media screen and (min-width: 576px) {
+  .slider-container {
+    height: 45vh;
+  }
+}
+@media screen and (min-width: 768px) {
+  .slider-container {
+    height: 55vh;
+  }
+}
+@media screen and (min-width: 992px) {
+  .slider-container {
+    height: 65vh;
+  }
+}
+
+
+#tours {
+  height: 95vh;
+}
+ 
+ 
+.title {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  padding: 20px 0;
+}
+
+.questions {
+   padding: 30px;
 }
